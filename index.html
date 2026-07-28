@@ -2,118 +2,758 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thái Vinh ❤️ Ngọc Hà</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Thái Vinh ❤️ Ngọc Hà — Our Story</title>
+
 <style>
 *{box-sizing:border-box}
+
+html{
+ scroll-behavior:smooth
+}
+
 body{
- margin:0;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;
- font-family:Georgia,"Times New Roman",serif;color:#5a2638;
- background:linear-gradient(135deg,#fff1f5,#ffdce7,#fff7f9);
+ margin:0;
+ font-family:Georgia,"Times New Roman",serif;
+ color:#5a2638;
+ background:#fff7fa;
+ overflow-x:hidden
 }
-.card{
- width:min(90%,560px);padding:42px 28px;text-align:center;border-radius:30px;
- background:rgba(255,255,255,.76);backdrop-filter:blur(12px);
- box-shadow:0 20px 60px rgba(150,55,90,.18);position:relative;z-index:2;
-}
-.heart{font-size:58px;animation:pulse 1.5s infinite}
-h1{font-size:30px;margin:15px 0 12px}
-p{font-size:18px;line-height:1.7;margin:12px 0}
+
 button{
- border:0;padding:14px 28px;border-radius:999px;background:#e85d87;color:white;
- font-size:16px;cursor:pointer;box-shadow:0 8px 20px rgba(232,93,135,.3);transition:.25s;
+ font:inherit
 }
-button:hover{transform:translateY(-2px);background:#d94e79}
-.hidden{display:none}
-.message{animation:fade .9s ease}
-.date{font-size:15px;opacity:.7;margin-top:18px}
-.names{font-size:25px;font-weight:bold;margin:8px 0;color:#b52f5c}
-.anniversary{font-size:22px;font-weight:bold;color:#d13f6d}
-.heart-float{position:fixed;bottom:-30px;font-size:22px;animation:float 7s linear infinite;opacity:.7;z-index:1}
-.firework{position:fixed;width:7px;height:7px;border-radius:50%;z-index:10;pointer-events:none;animation:explode 1.2s ease-out forwards}
-@keyframes pulse{50%{transform:scale(1.12)}}
-@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
-@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+
+/* HERO */
+.hero{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ background:radial-gradient(circle at 50% 30%,#fff,#ffdce8 55%,#f8c5d8)
+}
+
+.hero:before{
+ content:"";
+ position:absolute;
+ inset:-30%;
+ background:radial-gradient(circle,rgba(255,255,255,.55) 1px,transparent 2px);
+ background-size:45px 45px;
+ animation:stars 18s linear infinite;
+ opacity:.5
+}
+
+.hero-content{
+ position:relative;
+ z-index:2;
+ padding:30px;
+ animation:fadeUp 1.2s ease
+}
+
+.badge{
+ display:inline-block;
+ padding:8px 16px;
+ border-radius:99px;
+ background:rgba(255,255,255,.65);
+ backdrop-filter:blur(8px);
+ font-size:14px
+}
+
+h1{
+ font-size:clamp(38px,8vw,78px);
+ margin:18px 0 8px;
+ color:#a82f59;
+ text-shadow:0 5px 20px rgba(168,47,89,.15)
+}
+
+.subtitle{
+ font-size:clamp(18px,3vw,25px);
+ margin:0 0 28px
+}
+
+.date{
+ font-size:16px;
+ opacity:.7
+}
+
+.cta{
+ margin-top:30px;
+ border:0;
+ border-radius:999px;
+ padding:16px 30px;
+ background:#df5b86;
+ color:#fff;
+ cursor:pointer;
+ box-shadow:0 12px 30px rgba(223,91,134,.3);
+ transition:.3s
+}
+
+.cta:hover{
+ transform:translateY(-4px) scale(1.03)
+}
+
+/* SECTION */
+section{
+ padding:90px 20px;
+ position:relative
+}
+
+.container{
+ max-width:950px;
+ margin:auto
+}
+
+.title{
+ text-align:center;
+ font-size:36px;
+ color:#a82f59;
+ margin:0 0 18px
+}
+
+.center{
+ text-align:center
+}
+
+.story{
+ font-size:19px;
+ line-height:1.9;
+ text-align:center;
+ max-width:700px;
+ margin:auto
+}
+
+/* COUNTER */
+.counter{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
+ margin:35px auto;
+ max-width:700px
+}
+
+.box{
+ background:#fff;
+ border-radius:22px;
+ padding:22px 10px;
+ box-shadow:0 12px 35px rgba(130,50,80,.1)
+}
+
+.num{
+ font-size:34px;
+ font-weight:bold;
+ color:#d34d78
+}
+
+.label{
+ font-size:13px;
+ opacity:.65
+}
+
+/* MEMORY */
+.timeline{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:25px;
+ margin-top:40px
+}
+
+.memory{
+ background:rgba(255,255,255,.8);
+ padding:28px;
+ border-radius:25px;
+ box-shadow:0 12px 35px rgba(130,50,80,.1);
+ transition:.3s
+}
+
+.memory:hover{
+ transform:translateY(-6px)
+}
+
+.icon{
+ font-size:45px
+}
+
+/* LETTER */
+.letter{
+ background:linear-gradient(135deg,#fff,#fff0f5);
+ border-radius:28px;
+ padding:35px;
+ box-shadow:0 15px 50px rgba(130,50,80,.12);
+ max-width:750px;
+ margin:auto;
+ text-align:left;
+ line-height:1.9;
+ font-size:18px
+}
+
+/* GIFT */
+.secret{
+ text-align:center
+}
+
+.gift{
+ font-size:75px;
+ cursor:pointer;
+ display:inline-block;
+ animation:bounce 1.5s infinite;
+ filter:drop-shadow(0 10px 15px rgba(0,0,0,.12))
+}
+
+.final{
+ display:none;
+ margin:25px auto 0;
+ max-width:650px;
+ animation:fadeUp .8s ease
+}
+
+.final.show{
+ display:block
+}
+
+footer{
+ text-align:center;
+ padding:35px;
+ background:#5a2638;
+ color:#fff0f5
+}
+
+/* EFFECTS */
+.heart{
+ position:fixed;
+ bottom:-30px;
+ z-index:10;
+ pointer-events:none;
+ animation:float 7s linear forwards
+}
+
+.spark{
+ position:fixed;
+ width:6px;
+ height:6px;
+ border-radius:50%;
+ pointer-events:none;
+ z-index:20;
+ animation:explode 1.1s ease-out forwards
+}
+
+@keyframes fadeUp{
+ from{
+  opacity:0;
+  transform:translateY(25px)
+ }
+ to{
+  opacity:1;
+  transform:none
+ }
+}
+
+@keyframes float{
+ to{
+  transform:translateY(-110vh) rotate(360deg);
+  opacity:0
+ }
+}
+
 @keyframes explode{
- 0%{transform:translate(0,0) scale(1);opacity:1}
- 100%{transform:translate(var(--x),var(--y)) scale(.15);opacity:0}
+ to{
+  transform:translate(var(--x),var(--y)) scale(.1);
+  opacity:0
+ }
+}
+
+@keyframes bounce{
+ 50%{
+  transform:translateY(-12px) rotate(4deg)
+ }
+}
+
+@keyframes stars{
+ to{
+  transform:rotate(360deg)
+ }
+}
+
+/* MOBILE */
+@media(max-width:650px){
+
+ .counter{
+  grid-template-columns:repeat(2,1fr)
+ }
+
+ .timeline{
+  grid-template-columns:1fr
+ }
+
+ .letter{
+  padding:25px
+ }
+
+ .story{
+  font-size:17px
+ }
+
 }
 </style>
 </head>
-<body>
-<div class="card">
-  <div id="start">
-    <div class="heart">💌</div>
-    <h1>Anni ơi, có một điều anh muốn gửi em...</h1>
-    <p>Một món quà nhỏ thôi, nhưng có cả tình yêu của anh ở trong đó.</p>
-    <button onclick="openLove()">Bấm vào đây nè 💗</button>
-  </div>
 
-  <div id="message" class="hidden message">
-    <div class="heart">🎆</div>
-    <div class="names">Thái Vinh ❤️ Ngọc Hà</div>
-    <div class="anniversary">🎉 HAPPY 1ST ANNIVERSARY 🎉</div>
-    <p><b>05/08/2025 — 05/08/2026</b></p>
-    <p>
-      Vậy là chúng mình đã cùng nhau đi qua<br>
-      một năm thật đẹp rồi đó. ❤️
-    </p>
-    <p>
-      Cảm ơn em vì đã xuất hiện trong cuộc đời anh,<br>
-      cảm ơn em vì đã luôn ở bên anh và cùng anh<br>
-      tạo nên thật nhiều kỷ niệm đáng nhớ.
-    </p>
-    <p>
-      Mong rằng 1 năm, 2 năm, 5 năm hay thật nhiều năm sau nữa,<br>
-      chúng mình vẫn sẽ luôn ở bên nhau và yêu nhau như ngày hôm nay. 🥰
-    </p>
-    <p><b>Chúc mừng 1 năm anniversary của chúng mình! 💗</b></p>
-    <p><b>Anh yêu em rất nhiều, Ngọc Hà ❤️</b></p>
-    <div class="date">05.08.2025 — 05.08.2026</div>
-  </div>
+<body>
+
+<!-- MÀN HÌNH ĐẦU -->
+<header class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">
+💌 Một món quà nhỏ dành riêng cho Ngọc Hà
 </div>
 
+<h1>
+Thái Vinh ❤️ Ngọc Hà
+</h1>
+
+<p class="subtitle">
+Our Little Love Story
+</p>
+
+<p class="date">
+05.08.2025 — 05.08.2026
+</p>
+
+<button class="cta" onclick="startLove()">
+Bấm vào đây nhé 💗
+</button>
+
+</div>
+
+</header>
+
+
+<!-- 1 NĂM -->
+<section>
+
+<div class="container">
+
+<h2 class="title">
+🎉 Happy 1st Anniversary 🎉
+</h2>
+
+<p class="story">
+
+Vậy là chúng mình đã cùng nhau đi qua một năm rồi đó.
+
+Một năm có những niềm vui, những kỷ niệm và cả những khoảnh khắc thật đáng nhớ.
+
+Cảm ơn em vì đã xuất hiện trong cuộc đời anh. ❤️
+
+</p>
+
+
+<div class="counter">
+
+<div class="box">
+<div class="num" id="days">365</div>
+<div class="label">NGÀY</div>
+</div>
+
+<div class="box">
+<div class="num" id="hours">00</div>
+<div class="label">GIỜ</div>
+</div>
+
+<div class="box">
+<div class="num" id="mins">00</div>
+<div class="label">PHÚT</div>
+</div>
+
+<div class="box">
+<div class="num" id="secs">00</div>
+<div class="label">GIÂY</div>
+</div>
+
+</div>
+
+<p class="center">
+⏳ Và câu chuyện của chúng mình vẫn đang tiếp tục...
+</p>
+
+</div>
+
+</section>
+
+
+<!-- NHỮNG ĐIỀU MUỐN NÓI -->
+<section style="background:#fff0f5">
+
+<div class="container">
+
+<h2 class="title">
+🌷 Những điều anh muốn nói
+</h2>
+
+<div class="timeline">
+
+<div class="memory">
+<div class="icon">💗</div>
+<h3>Cảm ơn em</h3>
+<p>
+Cảm ơn em vì đã luôn ở bên anh,
+cùng anh tạo nên thật nhiều kỷ niệm đẹp.
+</p>
+</div>
+
+
+<div class="memory">
+<div class="icon">🥰</div>
+<h3>Vì chúng mình</h3>
+<p>
+Mong rằng dù sau này có bao nhiêu năm trôi qua,
+chúng mình vẫn chọn ở cạnh nhau.
+</p>
+</div>
+
+
+<div class="memory">
+<div class="icon">🌙</div>
+<h3>Những ngày phía trước</h3>
+<p>
+1 năm, 2 năm, 5 năm hay thật nhiều năm nữa —
+anh vẫn muốn có em trong hành trình đó.
+</p>
+</div>
+
+
+<div class="memory">
+<div class="icon">💍</div>
+<h3>Điều ước nhỏ</h3>
+<p>
+Hy vọng mỗi ngày bên nhau đều là một ngày
+thật đáng nhớ của cả hai.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LÁ THƯ -->
+<section>
+
+<div class="container">
+
+<h2 class="title">
+💌 Một lá thư dành cho em
+</h2>
+
+<div class="letter">
+
+<p>
+Ngọc Hà à,
+</p>
+
+<p>
+Chúc mừng 1 năm anniversary của chúng mình! ❤️
+</p>
+
+<p>
+Anh không biết phải nói sao cho hết những điều anh cảm thấy,
+nhưng anh thật sự rất vui vì trong cuộc đời này anh đã gặp được em.
+</p>
+
+<p>
+Cảm ơn em vì tất cả những điều nhỏ bé em đã dành cho anh.
+Cảm ơn vì đã cùng anh đi qua một năm thật đặc biệt.
+</p>
+
+<p>
+Anh mong rằng chúng mình sẽ còn có thêm thật nhiều “1 năm” nữa.
+Mong mỗi khi nhìn lại, chúng mình đều có thể mỉm cười và nói rằng:
+<b>“May mà ngày đó chúng ta đã gặp nhau.”</b>
+</p>
+
+<p style="text-align:right">
+
+<b>
+Yêu em rất nhiều,
+<br>
+Thái Vinh ❤️
+</b>
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUÀ BÍ MẬT -->
+<section style="background:linear-gradient(135deg,#ffe5ee,#fff7fa)">
+
+<div class="container secret">
+
+<h2 class="title">
+🎁 Một món quà bí mật
+</h2>
+
+<p>
+Bấm vào món quà để mở lời nhắn cuối cùng nhé...
+</p>
+
+<div class="gift" onclick="openGift()">
+🎁
+</div>
+
+
+<div class="final" id="final">
+
+<h2>
+💖 Anh yêu em, Ngọc Hà 💖
+</h2>
+
+<p class="story">
+
+Chúc mừng kỷ niệm 1 năm của chúng mình.
+
+Cảm ơn em đã là một phần thật đặc biệt trong cuộc đời anh.
+
+Mong rằng chúng mình sẽ luôn yêu thương,
+trân trọng và nắm tay nhau thật lâu nhé. 🥰
+
+</p>
+
+<p>
+<b>
+05.08.2025 ❤️ 05.08.2026
+</b>
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+Made with all my love —
+Thái Vinh ❤️ Ngọc Hà
+
+</footer>
+
+
 <script>
+
+/* ĐẾM THỜI GIAN YÊU NHAU */
+
+const startDate =
+new Date("2025-08-05T00:00:00");
+
+
+function updateCounter(){
+
+ const now = new Date();
+
+ const diff =
+ Math.max(0,now-startDate);
+
+ const days =
+ Math.floor(diff/86400000);
+
+ const hours =
+ Math.floor(diff/3600000)%24;
+
+ const mins =
+ Math.floor(diff/60000)%60;
+
+ const secs =
+ Math.floor(diff/1000)%60;
+
+
+ document.getElementById("days")
+ .textContent=days;
+
+ document.getElementById("hours")
+ .textContent=
+ String(hours).padStart(2,"0");
+
+ document.getElementById("mins")
+ .textContent=
+ String(mins).padStart(2,"0");
+
+ document.getElementById("secs")
+ .textContent=
+ String(secs).padStart(2,"0");
+
+}
+
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+
+
+/* BẤM NÚT ĐẦU */
+
+function startLove(){
+
+ document
+ .getElementById("home")
+ .scrollIntoView({
+  behavior:"smooth"
+ });
+
+ fireworks();
+
+ hearts(30);
+
+}
+
+
+
+/* TIM BAY */
+
+function hearts(n){
+
+ for(let i=0;i<n;i++){
+
+  const h =
+  document.createElement("div");
+
+  h.className="heart";
+
+  h.textContent =
+  ["❤️","💕","💗","💖","🌷"]
+  [Math.floor(Math.random()*5)];
+
+  h.style.left =
+  Math.random()*100+"vw";
+
+  h.style.fontSize =
+  16+Math.random()*28+"px";
+
+  h.style.animationDelay =
+  Math.random()*2+"s";
+
+  document.body.appendChild(h);
+
+  setTimeout(
+   ()=>h.remove(),
+   7500
+  );
+
+ }
+
+}
+
+
+
+/* PHÁO HOA */
+
 function fireworks(){
-  for(let burst=0;burst<7;burst++){
-    setTimeout(()=>{
-      const cx=20+Math.random()*60;
-      const cy=15+Math.random()*45;
-      for(let i=0;i<45;i++){
-        const p=document.createElement("div");
-        p.className="firework";
-        p.style.left=cx+"vw";
-        p.style.top=cy+"vh";
-        const angle=(Math.PI*2*i)/45;
-        const distance=70+Math.random()*130;
-        p.style.setProperty("--x",Math.cos(angle)*distance+"px");
-        p.style.setProperty("--y",Math.sin(angle)*distance+"px");
-        p.style.background=["#ff4d88","#ffd166","#7bdff2","#c77dff","#ff8fab"][Math.floor(Math.random()*5)];
-        document.body.appendChild(p);
-        setTimeout(()=>p.remove(),1300);
-      }
-    },burst*350);
-  }
+
+ for(let b=0;b<10;b++){
+
+  setTimeout(()=>{
+
+   const x =
+   15+Math.random()*70;
+
+   const y =
+   10+Math.random()*45;
+
+
+   for(let i=0;i<55;i++){
+
+    const s =
+    document.createElement("div");
+
+    s.className="spark";
+
+    s.style.left=x+"vw";
+
+    s.style.top=y+"vh";
+
+
+    const a =
+    Math.PI*2*i/55;
+
+    const d =
+    60+Math.random()*160;
+
+
+    s.style.setProperty(
+     "--x",
+     Math.cos(a)*d+"px"
+    );
+
+    s.style.setProperty(
+     "--y",
+     Math.sin(a)*d+"px"
+    );
+
+
+    s.style.background =
+    [
+     "#ff4d88",
+     "#ffd166",
+     "#7bdff2",
+     "#c77dff",
+     "#ff8fab"
+    ]
+    [Math.floor(Math.random()*5)];
+
+
+    document.body.appendChild(s);
+
+
+    setTimeout(
+     ()=>s.remove(),
+     1200
+    );
+
+   }
+
+  },b*250);
+
+ }
+
 }
 
-function floatingHearts(){
-  for(let i=0;i<18;i++){
-    const h=document.createElement("div");
-    h.className="heart-float";
-    h.textContent=["❤️","💕","💗","💖","🌷"][Math.floor(Math.random()*5)];
-    h.style.left=Math.random()*100+"vw";
-    h.style.animationDelay=Math.random()*4+"s";
-    h.style.fontSize=(16+Math.random()*22)+"px";
-    document.body.appendChild(h);
-  }
+
+
+/* MỞ QUÀ */
+
+function openGift(){
+
+ document
+ .getElementById("final")
+ .classList.add("show");
+
+
+ fireworks();
+
+ hearts(40);
+
+
+ document
+ .getElementById("final")
+ .scrollIntoView({
+  behavior:"smooth",
+  block:"center"
+ });
+
 }
 
-function openLove(){
-  document.getElementById("start").classList.add("hidden");
-  document.getElementById("message").classList.remove("hidden");
-  fireworks();
-  floatingHearts();
-}
 </script>
+
 </body>
 </html>
