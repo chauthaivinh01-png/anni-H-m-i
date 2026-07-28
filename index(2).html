@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thái Vinh ❤️ Ngọc Hà</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;
+ font-family:Georgia,"Times New Roman",serif;color:#5a2638;
+ background:linear-gradient(135deg,#fff1f5,#ffdce7,#fff7f9);
+}
+.card{
+ width:min(90%,560px);padding:42px 28px;text-align:center;border-radius:30px;
+ background:rgba(255,255,255,.76);backdrop-filter:blur(12px);
+ box-shadow:0 20px 60px rgba(150,55,90,.18);position:relative;z-index:2;
+}
+.heart{font-size:58px;animation:pulse 1.5s infinite}
+h1{font-size:30px;margin:15px 0 12px}
+p{font-size:18px;line-height:1.7;margin:12px 0}
+button{
+ border:0;padding:14px 28px;border-radius:999px;background:#e85d87;color:white;
+ font-size:16px;cursor:pointer;box-shadow:0 8px 20px rgba(232,93,135,.3);transition:.25s;
+}
+button:hover{transform:translateY(-2px);background:#d94e79}
+.hidden{display:none}
+.message{animation:fade .9s ease}
+.date{font-size:15px;opacity:.7;margin-top:18px}
+.names{font-size:25px;font-weight:bold;margin:8px 0;color:#b52f5c}
+.anniversary{font-size:22px;font-weight:bold;color:#d13f6d}
+.heart-float{position:fixed;bottom:-30px;font-size:22px;animation:float 7s linear infinite;opacity:.7;z-index:1}
+.firework{position:fixed;width:7px;height:7px;border-radius:50%;z-index:10;pointer-events:none;animation:explode 1.2s ease-out forwards}
+@keyframes pulse{50%{transform:scale(1.12)}}
+@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@keyframes explode{
+ 0%{transform:translate(0,0) scale(1);opacity:1}
+ 100%{transform:translate(var(--x),var(--y)) scale(.15);opacity:0}
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="start">
+    <div class="heart">💌</div>
+    <h1>Anni ơi, có một điều anh muốn gửi em...</h1>
+    <p>Một món quà nhỏ thôi, nhưng có cả tình yêu của anh ở trong đó.</p>
+    <button onclick="openLove()">Bấm vào đây nè 💗</button>
+  </div>
+
+  <div id="message" class="hidden message">
+    <div class="heart">🎆</div>
+    <div class="names">Thái Vinh ❤️ Ngọc Hà</div>
+    <div class="anniversary">🎉 HAPPY 1ST ANNIVERSARY 🎉</div>
+    <p><b>05/08/2025 — 05/08/2026</b></p>
+    <p>
+      Vậy là chúng mình đã cùng nhau đi qua<br>
+      một năm thật đẹp rồi đó. ❤️
+    </p>
+    <p>
+      Cảm ơn em vì đã xuất hiện trong cuộc đời anh,<br>
+      cảm ơn em vì đã luôn ở bên anh và cùng anh<br>
+      tạo nên thật nhiều kỷ niệm đáng nhớ.
+    </p>
+    <p>
+      Mong rằng 1 năm, 2 năm, 5 năm hay thật nhiều năm sau nữa,<br>
+      chúng mình vẫn sẽ luôn ở bên nhau và yêu nhau như ngày hôm nay. 🥰
+    </p>
+    <p><b>Chúc mừng 1 năm anniversary của chúng mình! 💗</b></p>
+    <p><b>Anh yêu em rất nhiều, Ngọc Hà ❤️</b></p>
+    <div class="date">05.08.2025 — 05.08.2026</div>
+  </div>
+</div>
+
+<script>
+function fireworks(){
+  for(let burst=0;burst<7;burst++){
+    setTimeout(()=>{
+      const cx=20+Math.random()*60;
+      const cy=15+Math.random()*45;
+      for(let i=0;i<45;i++){
+        const p=document.createElement("div");
+        p.className="firework";
+        p.style.left=cx+"vw";
+        p.style.top=cy+"vh";
+        const angle=(Math.PI*2*i)/45;
+        const distance=70+Math.random()*130;
+        p.style.setProperty("--x",Math.cos(angle)*distance+"px");
+        p.style.setProperty("--y",Math.sin(angle)*distance+"px");
+        p.style.background=["#ff4d88","#ffd166","#7bdff2","#c77dff","#ff8fab"][Math.floor(Math.random()*5)];
+        document.body.appendChild(p);
+        setTimeout(()=>p.remove(),1300);
+      }
+    },burst*350);
+  }
+}
+
+function floatingHearts(){
+  for(let i=0;i<18;i++){
+    const h=document.createElement("div");
+    h.className="heart-float";
+    h.textContent=["❤️","💕","💗","💖","🌷"][Math.floor(Math.random()*5)];
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDelay=Math.random()*4+"s";
+    h.style.fontSize=(16+Math.random()*22)+"px";
+    document.body.appendChild(h);
+  }
+}
+
+function openLove(){
+  document.getElementById("start").classList.add("hidden");
+  document.getElementById("message").classList.remove("hidden");
+  fireworks();
+  floatingHearts();
+}
+</script>
+</body>
+</html>
